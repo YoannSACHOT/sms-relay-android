@@ -48,7 +48,8 @@ public class SmsReceiver extends BroadcastReceiver {
             SmsManager sm = context.getSystemService(SmsManager.class);
             if (sm == null) sm = SmsManager.getDefault();
             sm.sendTextMessage(target, null, full, null, null);
-            Log.i(TAG, "Forwarded to " + target + ": " + full);
+            // Ne pas logger le contenu du SMS (peut contenir des codes 2FA).
+            Log.i(TAG, "Forwarded to target (" + full.length() + " chars)");
         } catch (Exception e) {
             Log.e(TAG, "Forward failed: " + e.getMessage());
         }
