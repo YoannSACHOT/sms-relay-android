@@ -8,3 +8,12 @@ build/
 .idea/
 *.iml
 local.properties
+
+# Secrets (audit sécurité 2026-06-10)
+.env
+*.env
+*.p8
+*.pem
+*.key
+google-services.json
+.claude/credentials.json
